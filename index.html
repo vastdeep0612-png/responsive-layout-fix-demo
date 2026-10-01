@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DEMO / REPRODUCTION — Responsive overflow fix</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="wrap">
+      <p class="label">DEMO / REPRODUCTION. Not a client site. Not a WordPress login.</p>
+      <h1>A fixed-width section that scrolls sideways</h1>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <section>
+      <h2>Problem</h2>
+      <p>On a phone, the page scrolls left and right. The menu stays on one line, and the hero is wider than the screen. This is a standalone copy of a layout mistake that shows up on WordPress and Elementor pages when a section or a widget is given a fixed pixel width.</p>
+    </section>
+    <section>
+      <h2>Cause</h2>
+      <p>The broken hero sets <code>width: 1200px</code> and <code>box-sizing: content-box</code>, so the padding is added on top of 1200px. The menu sets <code>white-space: nowrap</code>, so the links cannot drop to the next line. Nothing in the broken version limits those boxes to the screen.</p>
+    </section>
+    <section>
+      <h2>Fix</h2>
+      <p>The hero uses <code>max-width: 100%</code> and <code>box-sizing: border-box</code>. The menu uses <code>display: flex</code> and <code>flex-wrap: wrap</code>. The text can use the width it is given instead of forcing 1200px.</p>
+      <div class="code-grid">
+        <pre><code>/* broken */
+.hero {
+  width: 1200px;
+  box-sizing: content-box;
+  padding: 24px;
+}
+nav { white-space: nowrap; }</code></pre>
+        <pre><code>/* fixed */
+.hero {
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+}
+nav {
+  display: flex;
+  flex-wrap: wrap;
+}</code></pre>
+      </div>
+    </section>
+    <section>
+      <h2>Before / After</h2>
+      <p>Each frame is 360px wide. The left frame is the broken layout. The right frame is the same content after the fix. The status under each frame is measured in the browser.</p>
+      <div class="pair">
+        <figure>
+          <figcaption>Before</figcaption>
+          <div class="frame" id="broken-frame" data-mode="broken" tabindex="0" aria-label="Broken layout, sideways scroll expected">
+            <div class="mock">
+              <nav>
+                <a href="#main">Services</a>
+                <a href="#main">Work</a>
+                <a href="#main">Prices</a>
+                <a href="#main">About</a>
+                <a href="#main">Contact</a>
+                <a href="#main">Journal</a>
+              </nav>
+              <div class="hero">
+                <strong>Northline Studio</strong>
+                <p>This hero is 1200px wide. On a phone it should stay inside the screen. In this frame it does not.</p>
+              </div>
+            </div>
+          </div>
+          <p class="status" id="broken-status">Measuring…</p>
+        </figure>
+        <figure>
+          <figcaption>After</figcaption>
+          <div class="frame" id="fixed-frame" data-mode="fixed" tabindex="0" aria-label="Fixed layout, no sideways scroll expected">
+            <div class="mock">
+              <nav>
+                <a href="#main">Services</a>
+                <a href="#main">Work</a>
+                <a href="#main">Prices</a>
+                <a href="#main">About</a>
+                <a href="#main">Contact</a>
+                <a href="#main">Journal</a>
+              </nav>
+              <div class="hero">
+                <strong>Northline Studio</strong>
+                <p>The same hero now uses the width of the frame. The menu wraps instead of running off the side.</p>
+              </div>
+            </div>
+          </div>
+          <p class="status" id="fixed-status">Measuring…</p>
+        </figure>
+      </div>
+    </section>
+    <section>
+      <h2>Verification</h2>
+      <ul>
+        <li id="check-broken">Before frame overflows horizontally.</li>
+        <li id="check-fixed">After frame does not overflow horizontally.</li>
+        <li id="check-page">This case-study page itself does not overflow horizontally.</li>
+        <li>The menu in the after frame wraps onto more than one line.</li>
+        <li>The hero copy in the after frame stays inside the frame.</li>
+      </ul>
+      <p id="summary"></p>
+    </section>
+  </main>
+  <footer class="wrap">
+    <p>DEMO / REPRODUCTION. Self-initiated sample.</p>
+  </footer>
+  <script src="check.js"></script>
+</body>
+</html>

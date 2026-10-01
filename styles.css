@@ -1,0 +1,135 @@
+:root {
+  --paper: #f6f4ef;
+  --ink: #1d1a16;
+  --muted: #5e574e;
+  --line: #d7d0c4;
+  --bad: #8a2a22;
+  --good: #2d5a3d;
+}
+
+* { box-sizing: border-box; }
+
+html, body { max-width: 100%; overflow-x: clip; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 1.05rem/1.55 "Segoe UI", sans-serif;
+}
+
+.skip {
+  position: absolute;
+  left: 0.75rem;
+  top: -3rem;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.35rem 0.6rem;
+}
+
+.skip:focus { top: 0.75rem; }
+
+.wrap {
+  width: min(68rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.top { padding: 2rem 0 0.5rem; }
+
+.label { color: var(--muted); margin: 0 0 0.4rem; }
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin: 0; }
+
+h2 { margin: 0 0 0.4rem; }
+
+section { margin: 1.6rem 0; min-width: 0; }
+
+p { max-width: 46rem; }
+
+.code-grid, .pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+pre {
+  margin: 0;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.9rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  overflow-x: auto;
+  font-size: 0.92rem;
+}
+
+figure { margin: 0; min-width: 0; max-width: 100%; }
+
+figcaption { margin-bottom: 0.4rem; font-weight: 700; }
+
+.frame {
+  width: min(360px, 100%);
+  max-width: 100%;
+  min-width: 0;
+  height: 240px;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.mock nav a {
+  color: #fff;
+  background: #2a2723;
+  text-decoration: none;
+  padding: 12px 16px;
+  display: inline-block;
+}
+
+.frame[data-mode="broken"] nav { white-space: nowrap; }
+
+.frame[data-mode="broken"] .hero {
+  width: 1200px;
+  box-sizing: content-box;
+  padding: 24px;
+  background: #e6dfd2;
+}
+
+.frame[data-mode="fixed"] nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.frame[data-mode="fixed"] .hero {
+  width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 24px;
+  background: #e6dfd2;
+}
+
+.hero p { margin: 0.4rem 0 0; max-width: none; }
+
+.status { color: var(--muted); }
+
+.status.bad { color: var(--bad); }
+
+.status.good { color: var(--good); }
+
+footer { color: var(--muted); padding-bottom: 2rem; }
+
+a:focus-visible, .frame:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (max-width: 800px) {
+  .code-grid, .pair { grid-template-columns: 1fr; }
+}
