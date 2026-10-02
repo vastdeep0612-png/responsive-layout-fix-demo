@@ -1,31 +1,27 @@
-# DEMO / REPRODUCTION
+# SELF-INITIATED DEMO
 
-Self-initiated sample. This is not a client site and it is not a WordPress admin session.
+This is not a client site and it is not a WordPress admin session.
 
 ## Objective
 
-Show a common responsive layout failure, the CSS that causes it, and the CSS that removes it.
+Show three layout faults, the CSS that causes them, and the CSS that removes them at 375px, 768px, and 1440px.
 
 ## Problem
 
-A hero with a fixed width of 1200px, content-box sizing, and a menu that does not wrap. On a narrow frame the content scrolls sideways.
+A copied section has a 1200px hero, a menu that does not wrap, a button placed on top of the heading, and an 80px extra margin on the middle card.
 
 ## Cause
 
-`width: 1200px` plus `box-sizing: content-box` makes the hero wider than a phone. `white-space: nowrap` keeps the menu on one line.
+`width: 1200px` with `box-sizing: content-box`, `white-space: nowrap`, `position: absolute` on the button, and `margin-left: 80px` on the second card.
 
 ## Fix
 
-`max-width: 100%`, `box-sizing: border-box`, and `flex-wrap: wrap` on the menu. The rules in `styles.css` are the ones described on the page.
+`max-width: 100%`, `box-sizing: border-box`, a wrapping menu, the button back in normal flow, and one consistent card gap.
 
 ## Verification
 
-Open `index.html`. The before frame should report horizontal overflow. The after frame should report none. The case-study page itself should not scroll sideways.
+Open `index.html`. The before frames should show overflow at 375px, overlap at 375px, and uneven spacing at 768px. The after frames should clear all three. The page itself should not scroll sideways. The walkthrough button steps through those checks for about 75 seconds. There is no separate video file.
 
 ## How to run
 
 Open `index.html` in a browser, or serve this folder. GitHub Pages serves the same file.
-
-## Tech stack
-
-HTML, CSS, and a short measurement script.

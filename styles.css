@@ -4,7 +4,7 @@
   --muted: #5e574e;
   --line: #d7d0c4;
   --bad: #8a2a22;
-  --good: #2d5a3d;
+  --good: #24573a;
 }
 
 * { box-sizing: border-box; }
@@ -15,7 +15,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 1.05rem/1.55 "Segoe UI", sans-serif;
+  font: 1.02rem/1.5 "Segoe UI", sans-serif;
 }
 
 .skip {
@@ -29,107 +29,107 @@ body {
 
 .skip:focus { top: 0.75rem; }
 
-.wrap {
-  width: min(68rem, calc(100% - 2rem));
-  margin-inline: auto;
-}
+.wrap { width: min(72rem, calc(100% - 2rem)); margin: 0 auto 1.5rem; }
 
-.top { padding: 2rem 0 0.5rem; }
+.top { width: min(72rem, calc(100% - 2rem)); margin: 1.5rem auto 0; }
 
 .label { color: var(--muted); margin: 0 0 0.4rem; }
 
-h1, h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 500;
-  line-height: 1.2;
-}
+h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 500; line-height: 1.2; }
 
-h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); margin: 0; }
+h1 { font-size: clamp(1.7rem, 3vw, 2.5rem); margin: 0 0 0.6rem; }
 
-h2 { margin: 0 0 0.4rem; }
-
-section { margin: 1.6rem 0; min-width: 0; }
-
-p { max-width: 46rem; }
-
-.code-grid, .pair {
+.board {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-  min-width: 0;
-  max-width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
 }
 
-pre {
-  margin: 0;
-  min-width: 0;
-  max-width: 100%;
-  padding: 0.9rem;
-  background: #fff;
-  border: 1px solid var(--line);
-  overflow-x: auto;
-  font-size: 0.92rem;
-}
+.slot { min-width: 0; }
 
-figure { margin: 0; min-width: 0; max-width: 100%; }
-
-figcaption { margin-bottom: 0.4rem; font-weight: 700; }
+.slot p { margin: 0.35rem 0; font-size: 0.92rem; }
 
 .frame {
-  width: min(360px, 100%);
-  max-width: 100%;
-  min-width: 0;
-  height: 240px;
-  overflow: auto;
-  background: #fff;
+  height: 168px;
+  overflow: hidden;
   border: 1px solid var(--line);
+  background: #fff;
 }
 
-.mock nav a {
-  color: #fff;
-  background: #2a2723;
-  text-decoration: none;
-  padding: 12px 16px;
+.screen { transform-origin: top left; }
+
+.screen[data-width="375"] { width: 375px; transform: scale(0.62); }
+.screen[data-width="768"] { width: 768px; transform: scale(0.3); }
+.screen[data-width="1440"] { width: 1440px; transform: scale(0.16); }
+
+.site nav a {
   display: inline-block;
+  padding: 10px 14px;
+  background: #2a2723;
+  color: #fff;
+  text-decoration: none;
 }
 
-.frame[data-mode="broken"] nav { white-space: nowrap; }
+.screen[data-mode="broken"] nav { white-space: nowrap; }
 
-.frame[data-mode="broken"] .hero {
+.screen[data-mode="fixed"] nav { display: flex; flex-wrap: wrap; }
+
+.hero { position: relative; background: #e7e0d2; padding: 24px; }
+
+.screen[data-mode="broken"] .hero {
   width: 1200px;
   box-sizing: content-box;
-  padding: 24px;
-  background: #e6dfd2;
 }
 
-.frame[data-mode="fixed"] nav {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.frame[data-mode="fixed"] .hero {
+.screen[data-mode="fixed"] .hero {
   width: auto;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 24px;
-  background: #e6dfd2;
 }
 
-.hero p { margin: 0.4rem 0 0; max-width: none; }
+.title { margin: 0 0 0.4rem; }
 
-.status { color: var(--muted); }
+.screen[data-mode="broken"] .cta {
+  position: absolute;
+  top: 18px;
+  left: 180px;
+  background: #8c4a32;
+  color: #fff;
+  padding: 8px 12px;
+}
 
-.status.bad { color: var(--bad); }
+.screen[data-mode="fixed"] .cta {
+  position: static;
+  display: inline-block;
+  margin: 0 0 0.6rem;
+  background: #3f5c4b;
+  color: #fff;
+  padding: 8px 12px;
+}
 
-.status.good { color: var(--good); }
+.cards { display: flex; }
+.cards article { background: #fff; border: 1px solid var(--line); padding: 12px; min-width: 140px; }
+
+.screen[data-mode="broken"] .shift { margin-left: 80px; }
+.screen[data-mode="fixed"] .cards { gap: 16px; flex-wrap: wrap; }
+.screen[data-mode="fixed"] .shift { margin-left: 0; }
+
+.pass { color: var(--good); }
+.fail { color: var(--bad); }
+
+button {
+  font: inherit;
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  padding: 0.55rem 0.8rem;
+}
+
+button:focus-visible, a:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 
 footer { color: var(--muted); padding-bottom: 2rem; }
 
-a:focus-visible, .frame:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 2px;
-}
-
 @media (max-width: 800px) {
-  .code-grid, .pair { grid-template-columns: 1fr; }
+  .board { grid-template-columns: 1fr; }
 }
