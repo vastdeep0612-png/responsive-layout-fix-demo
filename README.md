@@ -25,3 +25,7 @@ Open `index.html`. The before frames should show overflow at 375px, overlap at 3
 ## How to run
 
 Open `index.html` in a browser, or serve this folder. GitHub Pages serves the same file.
+
+## Responsive web design checklist
+
+This self-initiated demo illustrates concrete layout faults. For a Korean-language checklist covering navigation, tap targets, form usability, and responsive UX, read [MODERUN's mobile UX design note](https://1oohyun.store/moderun-preview/guide-mobile-ux.html?utm_source=github&utm_medium=readme&utm_campaign=responsive_demo) and [MODERUN's website overview](https://1oohyun.store/moderun-preview/?utm_source=github&utm_medium=readme&utm_campaign=responsive_demo). This is not a client case study.
