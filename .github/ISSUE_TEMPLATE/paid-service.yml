@@ -1,0 +1,48 @@
+name: "Request a small paid web or automation project"
+description: "Public pre-quote intake (please do not include private or customer data)"
+title: "[Paid inquiry] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out to MODERUN. This is a **public GitHub issue**.
+        Do not include passwords, tokens, customer lists, payment card details, or personally identifying records.
+        For private details, use Discord `hoomhx` after agreeing on a safe contact method.
+        Work is not booked until the scope, price, deadline, and payment terms are confirmed.
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Project category"
+      options:
+        - "Responsive CSS / mobile UI fix"
+        - "Website public-page QA report"
+        - "CSV data processing automation"
+        - "Landing-page improvement"
+        - "Other - please describe"
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: "Scope and expected result (public, non-sensitive)"
+      description: "What is broken or what should the deliverable do?"
+      placeholder: "One mobile menu overlaps the headline at 375px. Expected: no overflow and keyboard navigation."
+    validations:
+      required: true
+  - type: input
+    id: budget
+    attributes:
+      label: "Budget range"
+      placeholder: "₩60,000 / 50 USDT, or another amount"
+  - type: input
+    id: deadline
+    attributes:
+      label: "Desired date"
+      placeholder: "2026-11-02"
+  - type: checkboxes
+    id: security
+    attributes:
+      label: "Security acknowledgement"
+      options:
+        - label: "I understand that this issue is public and have not included credentials or private data."
+          required: true
