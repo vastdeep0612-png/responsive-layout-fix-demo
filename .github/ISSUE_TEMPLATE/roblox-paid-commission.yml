@@ -1,0 +1,52 @@
+name: "Roblox Studio 유료 제작 의뢰 / Paid commission"
+description: "모델·맵 소품·검수 플러그인 등 소규모 유료 제작 문의 (공개 양식)"
+title: "[Roblox commission] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        MODERUN 맞춤 제작 문의입니다. 이 양식은 **GitHub 공개 이슈**로 저장됩니다.
+        계정 비밀번호, 인증 정보, 게임 비공개 소스, 개인키 또는 고객 개인정보를 올리지 마세요.
+        제출은 상담 요청이며 계약·결제·작업 수락을 뜻하지 않습니다.
+  - type: dropdown
+    id: service
+    attributes:
+      label: 요청 유형 / Service
+      options:
+        - Roblox Studio 거리 소품·3D 프리팹
+        - Roblox Studio 맵·건축 검수
+        - Roblox Studio 소규모 플러그인
+        - Roblox UI 스크립트 수정
+        - 기타 (내용에 작성)
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: 원하는 결과·검수 기준 / Scope
+      description: 공개 가능한 설명만 작성해 주세요.
+      placeholder: "모바일과 PC에서 사용할 가게 소품 3개를 제작하고, 파트 수 150개 이내로 검수"
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: 공개 참고 링크 (선택)
+      placeholder: "https://example.com/public-brief"
+  - type: input
+    id: budget
+    attributes:
+      label: 예산과 선호 지급 방식
+      placeholder: "₩80,000 국내 계좌 / $65 상당 해외 수금 (법규·플랫폼 허용 시)"
+  - type: input
+    id: date
+    attributes:
+      label: 희망 납품일
+      placeholder: "2026-11-05"
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: 공개 이슈 안내
+      options:
+        - label: 비밀번호·개인키·민감한 자료를 게시하지 않았습니다.
+          required: true
