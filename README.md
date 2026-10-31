@@ -44,3 +44,9 @@ MODERUN은 **모바일 CSS·반응형 오류 수정**, **웹사이트 QA**, **CS
 - **문의:** Discord `hoomhx` (작업 종류, 공개 URL/비식별 샘플, 일정, 예산)
 
 이 저장소는 자체 제작 데모이며 실제 고객 납품 실적으로 소개하지 않습니다.
+
+## Roblox Studio 모델·플러그인 제작 문의
+
+- [Roblox Studio 맞춤 에셋·건축 검수 서비스 및 상품 개발 현황](samples/roblox-studio-services.html)
+- 10종 소품 모델과 Build Audit 플러그인은 **Roblox Studio 실행 검증·판매자 인증 전 단계**이며, 공개 유료 상품이 아닙니다.
+- 의뢰 접수: [무료 GitHub 상담 양식](https://github.com/vastdeep0612-png/responsive-layout-fix-demo/issues/new/choose) · Discord `hoomhx`
