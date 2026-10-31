@@ -1,5 +1,11 @@
 # SELF-INITIATED DEMO
 
+## 공개 샘플 / Project-specific visual concept
+
+- [B2B 마케팅 성과형 원페이지 디자인 샘플](samples/marketing-onepage-concept.html) — 자체 제작 콘셉트로서 실제 고객 데이터·성과가 아닙니다.
+- [소규모 웹 수정·QA·CSV 자동화 가격과 의뢰 접수](SERVICES_KR_EN.md)
+- [GitHub 공개 의뢰 접수](https://github.com/vastdeep0612-png/responsive-layout-fix-demo/issues/new/choose) · Discord `hoomhx`
+
 This is not a client site and it is not a WordPress admin session.
 
 ## Objective
